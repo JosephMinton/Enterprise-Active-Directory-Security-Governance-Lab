@@ -1,1 +1,1 @@
-# Windows-Server-2022-Enterprise-Infrastructure-Lab
+# Windows-Server-2022-Enterprise-Infrastructure
