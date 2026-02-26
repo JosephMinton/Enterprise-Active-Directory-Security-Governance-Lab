@@ -17,13 +17,11 @@ This lab is Part III of a multi-part Active Directory home lab series. This phas
 
 <h2>Languages and Utilities Used</h2>
 
-<p>
 - <b>VMware Workstation</b> 
 - <b>Windows Server 2022 (Domain Controller)</b>
 - <b>Windows 11 Pro/Enterprise (Client VM)</b>
 - <b>Command Prompt (CMD)</b>
 - <b>PowerShell</b>
-</p>
 
 <p align="center">
 First visual of Group Policy Management: <br/>
