@@ -1,10 +1,10 @@
-# Windows Server 2022 Enterprise Infrastructure
+# Enterprise Active Directory Security Governance Lab
 <h1>Active Directory Domain Services (AD DS) Foundation & Initial Setup</h1>
 
 
 
 <h2>Description</h2>
-This project demonstrates the deployment of a Windows Server Active Directory environment designed to mirror a small corporate network. A Windows Server virtual machine was installed and promoted to a Domain Controller to establish centralized authentication and management. A custom domain (JosephMinton.local) was created, along with a structured Organizational Unit (OU) hierarchy for departments such as IT, HR, and Sales. User accounts and department-based security groups were configured within these OUs to support organized administration and role-based access control.
+This project demonstrates the deployment of a Windows Server Active Directory environment designed to mirror a small corporate network. A Windows Server virtual machine was installed and promoted to a Domain Controller to establish centralized authentication and management. A custom domain (JosephMinton.local) was created, along with a structured Organizational Unit (OU) hierarchy for departments such as IT, HR, and Sales. User accounts and department based security groups were configured within these OUs to support organized administration and role based access control.
 <br />
 
 <h2>Objective</h2>
@@ -20,9 +20,9 @@ This project demonstrates the deployment of a Windows Server Active Directory en
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>VMware Workstation</b> 
-- <b>Server Windows 2022</b>
-- <b>Active Directory</b>
+ <b>VMware Workstation</b> 
+ <b>Server Windows 2022</b>
+ <b>Active Directory</b>
 
 <h2>Environments Used </h2>
 
@@ -35,7 +35,7 @@ Enviornment Setup: <br/>
 - <b>Promoted the server to a Domain Controller (DC) to manage domain services such as authentication, authorization, and policy enforcement.</b>
 - <b>Created an AD domain: JosephMinton.local. This naming convention follows common lab practice using .local for internal networks.</b>
 
-Azure Active Directory is Microsoft’s cloud-based identity and access management service that lets organizations securely manage users, devices, and app access.
+Azure Active Directory is Microsoft’s cloud based identity and access management service that lets organizations securely manage users, devices, and app access.
  
  <br/>
  First look of Active Directory  <br/>
@@ -102,12 +102,12 @@ Everything worked on in this lab is found under AD domain (JosephMinton.local)
     <li><strong>Security:</strong> Used to assign permissions to resources such as files, folders, and applications.</li>
     <li><strong>Distribution (Distrolist):</strong> Used only for email distribution lists and cannot be used for access control.</li>
 </ul>
-<p>In this lab, Global Security Groups were used to organize users by department, following standard Active Directory best practices. Nesting OUs and using department-specific groups improves organization while maintaining flexibility for applying targeted Group Policies.</p>
+<p>In this lab, Global Security Groups were used to organize users by department, following standard Active Directory best practices. Nesting OUs and using department specific groups improves organization while maintaining flexibility for applying targeted Group Policies.</p>
 <h3>Group Strategy Used</h3>
 <ul>
   <li>Global Security Groups were created for each department.</li>
-  <li>Users were added to department-specific Global groups.</li>
-  <li>This approach supports role-based access and scalability.</li>
+  <li>Users were added to department specific Global groups.</li>
+  <li>This approach supports role based access and scalability.</li>
 </ul>
 <p>Department based OUs were created to simplify user administration and support future Group Policy assignment.</p>
  <br/>
@@ -118,9 +118,9 @@ Everything worked on in this lab is found under AD domain (JosephMinton.local)
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Gained hands-on experience promoting a Windows Server to a Domain Controller and configuring core AD services.</li>
+<li><strong>Gained hands on experience promoting a Windows Server to a Domain Controller and configuring core AD services.</li>
 <li><strong>Designed and implemented a structured OU hierarchy based on geography and departments to support scalable administration.</li>
 <li><strong>Created and managed user accounts, computers, servers, and groups within appropriate OUs.</li>
-<li><strong>Applied Active Directory best practices by using Global Security Groups for department-based role assignment.</li>
+<li><strong>Applied Active Directory best practices by using Global Security Groups for department based role assignment.</li>
  
 </ul>
