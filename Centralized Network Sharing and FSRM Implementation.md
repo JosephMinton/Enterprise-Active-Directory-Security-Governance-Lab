@@ -46,7 +46,10 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
   <img src="https://i.imgur.com/FgBqFxj.png"/>
 <br />
 </ul>
-<br><br>
+ 
+<h2>Notes</h2>
+<p>It is vital to distinguish between these two permission types: Shared permissions apply only at the folder level, meaning they do not affect subfolders or files individually. Conversely, NTFS permissions are applied to the folder and everything under it, including all subfolders and files, offering the granular control required for enterprise security</p>
+
 <h1>II. Manual Mapping vs. Automated GPO Drive Mapping</h1>
 
 <p>Verifying client-side connectivity by mapping the network resource to a local drive letter. While manual mapping is useful for temporary access, Group Policy Objects (GPOs) are used for permanent, automated enterprise wide deployment.</p>
@@ -78,7 +81,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 </ul>
 
 <h2>Notes</h2>
-<p></p>
+<p>Manual drive mapping is useful for temporary admin tasks, but it is not a persistent solution for general users. If the client machine reboots, a manually mapped drive will disappear, creating a significant administrative burden if users have to remap it every time they log in</p>
 
 
 <h1>III. Storage Governance via File Server Resource Manager (FSRM)</h1>
