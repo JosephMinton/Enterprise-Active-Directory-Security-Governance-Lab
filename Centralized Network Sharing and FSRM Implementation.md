@@ -27,7 +27,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 <br><br>
 
 <h1>I. Network Share Provisioning & Permission Hierarchies</h1><br/>
- <p>Establishing a centralized repository for company data to make editing and sharing of files easier for all users in the environment. This process requires a two layered security approach: Share permissions for network level access and NTFS permissions for granular file level control.</p>
+ <p>Establishing a centralized repository for company data to make editing and sharing of files easier for all users in the environment. This process requires a two layered security approach: Share permissions for network level access and NTFS permissions for precise file level control.</p>
 
 <p>To facilitate resource sharing, I created a directory on the server's local storage and configured access for the "Domain Users" group.</p>
 <ul>
@@ -48,7 +48,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 </ul>
  
 <h2>Notes</h2>
-<p>It is vital to distinguish between these two permission types: Shared permissions apply only at the folder level, meaning they do not affect subfolders or files individually. Conversely, NTFS permissions are applied to the folder and everything under it, including all subfolders and files, offering the granular control required for enterprise security</p>
+<p>It's important to distinguish between these two permission types: Shared permissions apply only at the folder level, meaning they do not affect subfolders or files individually. Conversely, NTFS permissions are applied to the folder and everything under it, including all subfolders and files, offering the precise control required for enterprise security.</p>
 
 <h1>II. Manual Mapping vs. Automated GPO Drive Mapping</h1>
 
@@ -81,7 +81,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 </ul>
 
 <h2>Notes</h2>
-<p>Manual drive mapping is useful for temporary admin tasks, but it is not a persistent solution for general users. If the client machine reboots, a manually mapped drive will disappear, creating a significant administrative burden if users have to remap it every time they log in</p>
+<p>Manual drive mapping is useful for temporary admin tasks, but it is not a persistent solution for general users. If the client machine reboots, a manually mapped drive will disappear, creating a significant administrative burden if users have to remap it every time they log in.</p>
 
 
 <h1>III. Storage Governance via File Server Resource Manager (FSRM)</h1>
@@ -112,13 +112,13 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 
 </ul>
 <h2>Notes</h2>
-<p>Automating drive mapping via GPO Preferences ensures a consistent user experience while reducing manual administrative tasks. Simultaneously, FSRM provides a critical layer of storage governance, ensuring that the file server remains operational and is not filled with unauthorized or heavy multimedia data</p>
+<p>Automating drive mapping via GPO Preferences ensures a consistent user experience while reducing manual administrative tasks. Simultaneously, FSRM provides a critical layer of storage governance, ensuring that the file server remains operational and is not filled with unauthorized or heavy multimedia data.</p>
 
 <br><br>
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Permissions are Multi-layered: Share permissions provide basic entry at the folder level, but NTFS permissions are required for granular, persistent control over individual subfolders and files</li>
-<li><strong>Automation Equals Persistence: Manual drive mapping is session based and disappears after a reboot; Group Policy Preferences must be used to ensure network shares are automatically and reliably mapped for every user login</li>
-<li><strong>Governance Prevents Exhaustion: Server storage is finite and expensive; utilizing FSRM to implement quotas and file screening is essential to prevent storage depletion from unauthorized or oversized multimedia files</li>
+<li><strong>Share permissions provide basic entry at the folder level, but NTFS permissions are required for persistent control over individual subfolders and files</li>
+<li><strong>Manual drive mapping is session based and disappears after a reboot. Group Policy Preferences must be used to ensure network shares are automatically and reliably mapped for every user login</li>
+<li><strong>Server storage is finite and expensive, utilizing FSRM to implement quotas and file screening is essential to prevent storage depletion from unauthorized or oversized multimedia files</li>
 </ul>
