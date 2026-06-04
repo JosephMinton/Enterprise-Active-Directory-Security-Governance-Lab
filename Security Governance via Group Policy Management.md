@@ -1,4 +1,4 @@
-# Enterprise Active Directory Security Governance Lab
+# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
 <h1>Security Governance via Group Policy Management</h1>
 
 <h2>Description</h2>
@@ -211,3 +211,7 @@ In Part III, I will focus on:
 <li><strong>Testing computer domain join behavior and how GPOs apply during and after the join process</li>
 </ul>
 This next phase will validate that the policies configured in this lab are functioning as intended in practice, not just configured correctly.
+
+<p>Next section</p>
+
+[Domain Integration & Security Policy Verification](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Domain%20Integration%20%26%20Security%20Policy%20Verification.md)
