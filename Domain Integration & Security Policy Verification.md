@@ -1,4 +1,4 @@
-# Enterprise Active Directory Security Governance Lab
+# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
 <h1>Domain Integration & Security Policy Verification</h1>
 
 <h2>Description</h2>
@@ -134,9 +134,12 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 
 <h1>Next Steps - Part 4</h1>
 <ul>
-In Part IV, I will focus on:
 <li><strong>Setting up file shares and organizing department specific folders for HR and IT</li>
 <li><strong>Configuring NTFS and share permissions to manage folder visibility and user access levels</li>
 <li><strong>Automating network drive mapping using Group Policy Preferences for domain users</li>
 <li><strong>Implementing storage quotas and file screening with File Server Resource Manager (FSRM) to manage server space</li>
 </ul>
+
+<p>Next section</p>
+
+[Centralized Network Sharing and FSRM Implementation](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Centralized%20Network%20Sharing%20and%20FSRM%20Implementation.md)
