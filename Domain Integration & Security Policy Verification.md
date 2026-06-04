@@ -23,10 +23,11 @@ This lab is Part III of a multipart Active Directory home lab series. This phase
 - <b>Command Prompt (CMD)</b>
 - <b>PowerShell</b>
 
-<h1>I. Server Side Static IP & DNS Configuration</h1><br/>
+<h1>1. Server Side Static IP & DNS Configuration</h1><br/>
  <p>Establishing a reliable anchor for the network by assigning a static IP to the Domain Controller. Servers must have static IPs to prevent client disconnection if a DHCP lease changes.</p>
 
-<p>Action Taken Because the Settings app and Control Panel were inaccessible due to GPO restrictions implemented in Part II, I utilized PowerShell to configure the network interface.</p>
+<h2>Action Taken</h2>
+<p>Because the Settings app and Control Panel were inaccessible due to GPO restrictions implemented in Part II, I utilized PowerShell to configure the network interface.</p>
 <ul>
 <li><strong>Discovery: Identified the network adapter index (ifIndex 6) using Get-NetAdapter</li>
 <li><strong>Final Configuration: Successfully applied the static IP, Default Gateway, and DNS servers</li>
@@ -44,8 +45,7 @@ Problem Encountered An incorrect IP address was initially assigned, and the Defa
 <br />
  <br><br>
 <p>Remediation Workflow Instead of using the nonfunctional GUI, I resolved the conflict via the following PowerShell sequence:</p>
-<p>
-1. Identify the incorrect assignment ipconfig /all 
+<p>1. Identify the incorrect assignment ipconfig /all
 
 2. Remove the incorrect IP to clear the interface conflict
 Remove-NetIPAddress -InterfaceIndex 6 -IPAddress [Incorrect_IP]
@@ -61,7 +61,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <h2>Notes</h2>
 <p>The use of Remove-NetIPAddress was critical here. PowerShell prevents overwriting an IP if a conflict exists on the same interface index. This workflow demonstrates the ability to audit network settings and perform manual remediation when standard management tools are restricted.</p>
 
-<h1>II. Client-Side DNS Alignment</h1>
+<h1>2. Client-Side DNS Alignment</h1>
 
 <p>Configuring the Windows 11 client to see the Domain Controller.</p>
 <h2>Action Taken</h2>
@@ -77,7 +77,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <p>The client cannot join the domain if it cannot find it. By pointing the client's DNS directly to the Domain Controller, we allow it to resolve the domain name (e.g., EastCharmer.local) to the server's IP.</p>
 
 
-<h1>III. Computer Domain Join</h1>
+<h1>3. Computer Domain Join</h1>
 
 <p>Executing the formal handshake between the workstation and the domain infrastructure.</p>
 <h2>Configuration Path</h2>
@@ -93,7 +93,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <p>This step creates a Computer Object in Active Directory. After the mandatory reboot, the machine is no longer a standalone entity but a managed asset of the enterprise.</p>
 
 
-<h1>IV. GPO Linking & OU Management</h1>
+<h1>4. GPO Linking & OU Management</h1>
 <p>Organizing the new asset into the correct bucket to receive security policies.</p>
 <h2>Action Taken</h2>
 <ul>
@@ -110,7 +110,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <p>Policies do not apply just because they exist. They must be Linked to an OU, and the user/computer objects must be physically moved into that OU within ADUC for the link to take effect.</p>
 
 
-<h1>V. Policy Enforcement & Verification</h1>
+<h1>5. Policy Enforcement & Verification</h1>
 <p>Manually triggering the Handshake to verify security controls are active.</p>
 <h2>Action Taken</h2>
 <ul>
@@ -132,7 +132,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <li><strong>Verification: A successful lab isn't finished until the Deny or Restriction is visually confirmed on the client machine</li>
 </ul>
 
-<h1>Next Steps - Part IV</h1>
+<h1>Next Steps - Part 4</h1>
 <ul>
 In Part IV, I will focus on:
 <li><strong>Setting up file shares and organizing department specific folders for HR and IT</li>
