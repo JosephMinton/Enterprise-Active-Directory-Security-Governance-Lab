@@ -26,7 +26,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 
 <br><br>
 
-<h1>I. Network Share Provisioning & Permission Hierarchies</h1><br/>
+<h1>1. Network Share Provisioning & Permission Hierarchies</h1><br/>
  <p>Establishing a centralized repository for company data to make editing and sharing of files easier for all users in the environment. This process requires a two layered security approach: Share permissions for network level access and NTFS permissions for precise file level control.</p>
 
 <p>To facilitate resource sharing, I created a directory on the server's local storage and configured access for the "Domain Users" group.</p>
@@ -50,7 +50,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 <h2>Notes</h2>
 <p>It's important to distinguish between these two permission types: Shared permissions apply only at the folder level, meaning they do not affect subfolders or files individually. Conversely, NTFS permissions are applied to the folder and everything under it, including all subfolders and files, offering the precise control required for enterprise security.</p>
 
-<h1>II. Manual Mapping vs. Automated GPO Drive Mapping</h1>
+<h1>2. Manual Mapping vs. Automated GPO Drive Mapping</h1>
 
 <p>Verifying client-side connectivity by mapping the network resource to a local drive letter. While manual mapping is useful for temporary access, Group Policy Objects (GPOs) are used for permanent, automated enterprise wide deployment.</p>
 <h2>Action Taken</h2>
@@ -84,7 +84,7 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 <p>Manual drive mapping is useful for temporary admin tasks, but it is not a persistent solution for general users. If the client machine reboots, a manually mapped drive will disappear, creating a significant administrative burden if users have to remap it every time they log in.</p>
 
 
-<h1>III. Storage Governance via File Server Resource Manager (FSRM)</h1>
+<h1>3. Storage Governance via File Server Resource Manager (FSRM)</h1>
 
 <p>Implementing administrative controls to manage and classify data stored on file servers. This prevents storage depletion by setting limits and restricting the upload of non-business related files.</p>
 <h2>Action Path</h2>
