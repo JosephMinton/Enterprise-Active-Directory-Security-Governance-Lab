@@ -1,4 +1,4 @@
-# Enterprise Active Directory Security Governance Lab
+# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
 <h1>Active Directory Domain Services (AD DS) Foundation & Initial Setup</h1>
 
 
@@ -46,7 +46,7 @@ An Organizational Unit (OU) is a container in Active Directory that organizes us
  
 Everything worked on in this lab is found under AD domain (JosephMinton.local)
 
-<h2>I. Create OUs for different departments.</h2>
+<h2>1. Create OUs for different departments.</h2>
 <ul>
   <li>USA</li>
   <li>Europe</li>
@@ -56,7 +56,7 @@ Everything worked on in this lab is found under AD domain (JosephMinton.local)
  Adding the primary OUs  <br/>
 <img src="https://i.imgur.com/uYsJayZ.png" alt="Disk Sanitization Steps"/>
 <br />
-<h2>II. Create user accounts and groups within these OUs.</h2>
+<h2>2. Create user accounts and groups within these OUs.</h2>
 <p>Add the following groups: Users, Computers, and Servers.</p>
 <i>You can create another OU within an already made OU.</i>
 <h3>Users</h3>
@@ -124,3 +124,7 @@ Everything worked on in this lab is found under AD domain (JosephMinton.local)
 <li><strong>Applied Active Directory best practices by using Global Security Groups for department based role assignment.</li>
  
 </ul>
+
+<p>Next section</p>
+
+[Security Governance with Group Policy](https://github.com/JosephMinton/Windows-Server-2022-Enterprise-Infrastructure/blob/main/Security%20Governance%20via%20Group%20Policy%20Management.md)
