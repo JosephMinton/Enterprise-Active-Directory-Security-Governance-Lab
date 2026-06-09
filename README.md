@@ -2,6 +2,27 @@
 
 This project simulates a comprehensive enterprise Windows domain environment, focusing on the deployment of foundational infrastructure and the implementation of centralized security governance. The project spans the full deployment lifecycle, beginning with the installation of Windows Server 2022 and the configuration of Active Directory Domain Services (AD DS) to manage organizational units, users, and groups.
 
+<h2>Tools and Technologies Used</h2>
+
+<table>
+  <tr>
+    <td><b>VMware Workstation Pro</b></td>
+    <td><b>Windows Server 2022</b></td>
+  </tr>
+  <tr>
+    <td><b>Windows 11 Enterprise</b></td>
+    <td><b>Active Directory Domain Services</b></td>
+  </tr>
+  <tr>
+    <td><b>File Server Resource Manager</b></td>
+    <td><b>Group Policy Management Console</b></td>
+  </tr>
+  <tr>
+    <td><b>CMD</b></td>
+    <td><b>PowerShell</b></td>
+  </tr>
+</table>
+
 Centralized administrative control is established through the creation and enforcement of Group Policy Objects (GPOs), which secure the environment by restricting unauthorized hardware, enforcing password complexities, and controlling access to system settings on domain-joined Windows 11 workstations. The final phase integrates enterprise file services and storage governance, utilizing File Server Resource Manager (FSRM) to automate persistent network drive mapping while protecting server resources through the implementation of storage quotas and file screening. The objective of this multipart series is to demonstrate practical competency in end-to-end Windows Server administration and identity management within a scalable corporate network model.
 
   - [Active Directory Foundations](https://github.com/JosephMinton/Windows-Server-2022-Enterprise-Infrastructure/blob/main/Active%20Directory%20Domain%20Services%20Foundation.md) Deployed Windows Server 2022 domain environment within VMware. Created GPOs, OUs, groups, and users. It explains group scopes and types, demonstrates how to create groups, and includes a practical exercise to implement these concepts in a basic AD environment.
