@@ -98,8 +98,9 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <img src="https://i.imgur.com/P0uMEJ1.png"/>
 <br />
 
-<h2>Notes</h2>
-<p>This step creates a Computer Object in Active Directory. After the mandatory reboot, the machine is no longer a standalone entity but a managed asset of the enterprise.</p>
+> *__Notes__*
+>
+> *This step creates a Computer Object in Active Directory. After the mandatory reboot, the machine is no longer a standalone entity but a managed asset of the enterprise.*
 
 
 <h1>4. GPO Linking & OU Management</h1>
@@ -131,8 +132,9 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <img src="https://i.imgur.com/mDIEvAX.png"/>
 <br />
 
-<h2>Notes</h2>
-<p>While GPOs refresh automatically every 90 minutes, gpupdate /force is the essential Tier 1 troubleshooting tool to verify changes immediately. The successful block of the Control Panel confirms that our Part II security governance is functioning as intended.</p>
+> *__Notes__*
+>
+> *While GPOs refresh automatically every 90 minutes, gpupdate /force is the essential Tier 1 troubleshooting tool to verify changes immediately. The successful block of the Control Panel confirms that our Part II security governance is functioning as intended.*
 
 <h1>Key Takeaways</h1>
 <ul>
