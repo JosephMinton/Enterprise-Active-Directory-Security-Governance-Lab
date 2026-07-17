@@ -17,11 +17,20 @@ This lab is Part III of a multipart Active Directory home lab series. This phase
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>VMware Workstation</b> 
-- <b>Windows Server 2022 (Domain Controller)</b>
-- <b>Windows 11 Enterprise (Client VM)</b>
-- <b>Command Prompt (CMD)</b>
-- <b>PowerShell</b>
+<table>
+  <tr>
+    <td><b>VMware Workstation</b></td>
+    <td><b>Windows Server 2022 (Domain Controller)</b></td>
+  </tr>
+  <tr>
+    <td><b>Windows 11 Enterprise (Client VM)</b></td>
+    <td><b>Command Prompt (CMD)</b></td>
+  </tr>
+  <tr>
+    <td><b>PowerShell</b></td>
+    <td><b></b></td>
+  </tr>
+</table>
 
 <h1>1. Server Side Static IP & DNS Configuration</h1><br/>
  <p>Establishing a reliable anchor for the network by assigning a static IP to the Domain Controller. Servers must have static IPs to prevent client disconnection if a DHCP lease changes.</p>
@@ -130,14 +139,6 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <li><strong>DNS is the Foundation: 90% of domain join failures are DNS related; the client must point to the DC</li>
 <li><strong>Object Placement: Computers join a generic container by default; they must be moved to the correct OU to receive specific policies</li>
 <li><strong>Verification: A successful lab isn't finished until the Deny or Restriction is visually confirmed on the client machine</li>
-</ul>
-
-<h1>Next Steps in phase 4</h1>
-<ul>
-<li><strong>Setting up file shares and organizing department specific folders for HR and IT</li>
-<li><strong>Configuring NTFS and share permissions to manage folder visibility and user access levels</li>
-<li><strong>Automating network drive mapping using Group Policy Preferences for domain users</li>
-<li><strong>Implementing storage quotas and file screening with File Server Resource Manager (FSRM) to manage server space</li>
 </ul>
 
 <p>Next section</p>
