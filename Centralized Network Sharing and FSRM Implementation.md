@@ -17,12 +17,20 @@ This lab is Part IV of a multipart Active Directory home lab series. This phase 
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>VMware Workstation</b> 
-- <b>Windows Server 2022 (Domain Controller)</b>
-- <b>Windows 11 Enterprise (Client VM)</b>
-- <b>File Server Resource Manager (FSRM)</b>
-- <b>Group Policy Management Console (GPMC)</b>
-- <b>Command Prompt (CMD)</b>
+<table>
+  <tr>
+    <td><b>VMware Workstation</b></td>
+    <td><b>Windows Server 2022 (Domain Controller)</b></td>
+  </tr>
+  <tr>
+    <td><b>Windows 11 Enterprise (Client VM)</b></td>
+    <td><b>File Server Resource Manager (FSRM)</b></td>
+  </tr>
+  <tr>
+    <td><b>Group Policy Management Console (GPMC)</b></td>
+    <td><b>Command Prompt (CMD)</b></td>
+  </tr>
+</table>
 
 <br><br>
 
