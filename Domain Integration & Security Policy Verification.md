@@ -132,7 +132,7 @@ Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses (127.0.0.1, 8.8.8.
 <li><strong>Verification: A successful lab isn't finished until the Deny or Restriction is visually confirmed on the client machine</li>
 </ul>
 
-<h1>Next Steps - Part 4</h1>
+<h1>Next Steps in phase 4</h1>
 <ul>
 <li><strong>Setting up file shares and organizing department specific folders for HR and IT</li>
 <li><strong>Configuring NTFS and share permissions to manage folder visibility and user access levels</li>
