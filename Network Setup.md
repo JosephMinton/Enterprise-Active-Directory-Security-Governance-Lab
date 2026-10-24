@@ -1,5 +1,5 @@
-# [Active Directory Administration Lab 🏢](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Automated%20Bulk%20User%20Provisioning.md)
-<h1>Active Directory Administration Lab 🏢 Prerequisites & Environment Setup</h1>
+# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
+# [Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Automated%20Bulk%20User%20Provisioning.md) 🏢 Prerequisites & Environment Setup
 
 <h2>Description</h2>
 <p>This document outlines the tools, virtual machine requirements, and foundational network configuration used to prepare the Active Directory lab environment.</p>
