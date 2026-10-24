@@ -1,4 +1,4 @@
-# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
+# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
 <h1>Active Directory Administration Lab 🏢</h1>
 
 PowerShell Automation, Domain Services, and Workstation Authentication
@@ -18,6 +18,8 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 <li><strong>Verify domain-user authentication from the client workstation</li>
 <li><strong>Identify security and reliability considerations for administrative automation</li>
 </ul>
+
+[Environment Setup Details](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Network%20Setup.md)
 
 <h2>Technologies Used 🧪</h2>
 
