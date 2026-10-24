@@ -90,6 +90,8 @@ Commands and implementation
 New-ADOrganizationalUnit -Name "_users"
 ```
 
+<img src="https://i.imgur.com/YxkweX8.png"/>
+
 The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the <code>_users</code> OU and its accounts were present.
 
 For command-line verification, the following query can be used when the domain and OU distinguished name match the lab:
@@ -105,9 +107,14 @@ Administrative considerations
 <p>The lab used a simplified account-creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
   logging, credential handling, and least-privilege permissions. Broad execution-policy changes and shared default passwords should not be treated as production defaults.</p>
 
-<p><strong>Evidence:</strong> Insert a screenshot of the relevant script logic, the execution result, and the <code>_users</code> OU in ADUC. Captions should describe what each image verifies rather than simply stating that a screenshot was taken. </p>
+<img src="https://i.imgur.com/le2zVm1.png"/>
+<img src="https://i.imgur.com/E0ZLUOd.png"/>
 
 <h2>3. Client Network Configuration and Service Validation</h2>
+No gateway ip address was available
+<img src="https://i.imgur.com/JGcaDVE.png"/>
+fix
+<img src="https://i.imgur.com/LSD3YR1.png"/>
 <p>Before joining the workstation to the domain, the client's network configuration was checked to confirm that it received an address from the expected DHCP scope and had the correct gateway. 
 Connectivity and name-resolution tests were then used to assess whether the client could reach domain and external resources.</p>
 The primary validation command was:
@@ -115,6 +122,7 @@ The primary validation command was:
 ```powershell
 ipconfig /all
 ```
+<img src="https://i.imgur.com/7ORONIt.png"/>
 
 Connectivity and name-resolution checks included:
 
@@ -142,6 +150,9 @@ membership in the Windows domain and created or updated its computer account in 
 
 <p>The computer account was checked in ADUC, and the client's DHCP lease was reviewed in DHCP Manager. A generated domain account was then used to sign in to the workstation.</p>
 
+<img src="https://i.imgur.com/6d46IWC.png"/>
+<img src="https://i.imgur.com/qDdILig.png"/>
+
 Authentication verification
  <p>The following command was run in the client's Command Prompt:</p>
 
@@ -153,6 +164,8 @@ whoami
 ```powershell
 mydomain\username
 ```
+
+<img src="https://i.imgur.com/QxfVAkG.png"/>
 
 <p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
 
