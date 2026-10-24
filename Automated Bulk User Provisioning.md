@@ -37,10 +37,10 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 </table>
 
 <h2>1. Lab Environment and Network Architecture</h2>
-<p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named client1. The client was connected to a 
-VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was mydomain.com.</p>
+<p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named `client1`. The client was connected to a 
+VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was `mydomain.com`</p>
 </br>
-<p>The internal DHCP scope was configured for 172.16.0.100–172.16.0.200, with 172.16.0.1 as the expected default gateway. The server also 
+<p>The internal DHCP scope was configured for `172.16.0.100–172.16.0.200`, with `172.16.0.1` as the expected default gateway. The server also 
 provided routing through the lab's NAT/RRAS configuration, allowing the isolated client network to reach external resources.</p>
 
 Key configuration values
