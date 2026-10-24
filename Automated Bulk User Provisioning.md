@@ -19,8 +19,6 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 <li><strong>Identify security and reliability considerations for administrative automation</li>
 </ul>
 
-[Environment Setup Details](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Network%20Setup.md)
-
 <h2>Technologies Used 🧪</h2>
 
 <table>
@@ -37,6 +35,8 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
     <td><b>Active Directory Users and Computers</b></td>
   </tr>
 </table>
+
+[Environment Setup Details](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Network%20Setup.md)
 
 <h2>1. Lab Environment and Network Architecture</h2>
 <p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named <code>client1</code>. The client was connected to a 
