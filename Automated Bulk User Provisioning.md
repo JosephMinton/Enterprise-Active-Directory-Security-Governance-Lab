@@ -171,8 +171,7 @@ mydomain\username
 
 <p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
 
-<p><strong>Evidence:</strong> Insert the domain-join confirmation, the computer account and DHCP lease where applicable, and the <code>whoami</code> output from the signed-in session. 
-Use captions to identify the specific configuration or result each image supports.</p>
+<img src="https://i.imgur.com/4y01I53.png"/>
 
 <h1>Key Takeaways</h1>
 <ul>
