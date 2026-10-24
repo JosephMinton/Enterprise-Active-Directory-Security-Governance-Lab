@@ -37,10 +37,10 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 </table>
 
 <h2>1. Lab Environment and Network Architecture</h2>
-<p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named `client1`. The client was connected to a 
-VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was `mydomain.com`</p>
+<p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named <code>client1</code>. The client was connected to a 
+VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was <code>mydomain.com</code></p>
 </br>
-<p>The internal DHCP scope was configured for `172.16.0.100–172.16.0.200`, with `172.16.0.1` as the expected default gateway. The server also 
+<p>The internal DHCP scope was configured for <code>172.16.0.100–172.16.0.200</code>, with <code>172.16.0.1</code> as the expected default gateway. The server also 
 provided routing through the lab's NAT/RRAS configuration, allowing the isolated client network to reach external resources.</p>
 
 Key configuration values
@@ -80,7 +80,7 @@ These values describe the training environment and are not intended as productio
 <h2>2. Automated Active Directory User Provisioning</h2>
 
 <p>PowerShell was used to provision multiple test accounts from a text-based list rather than creating each account individually through ADUC. The script created a 
-  dedicated _users Organizational Unit, read names from names.txt, generated usernames using the first initial and surname, and created accounts with New-ADUser.</p>
+  dedicated <code>_users</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
 
 <p>This exercise demonstrated how structured input and repeatable scripting can reduce repetitive administrative work and help standardize account creation.</p>
 Commands and implementation
@@ -90,7 +90,7 @@ Commands and implementation
 New-ADOrganizationalUnit -Name "_users"
 ```
 
-The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the _users OU and its accounts were present.
+The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the <code>_users</code> OU and its accounts were present.
 
 For command-line verification, the following query can be used when the domain and OU distinguished name match the lab:
 
@@ -105,7 +105,7 @@ Administrative considerations
 <p>The lab used a simplified account-creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
   logging, credential handling, and least-privilege permissions. Broad execution-policy changes and shared default passwords should not be treated as production defaults.</p>
 
-<p><strong>Evidence:</strong> Insert a screenshot of the relevant script logic, the execution result, and the _users OU in ADUC. Captions should describe what each image verifies rather than simply stating that a screenshot was taken. </p>
+<p><strong>Evidence:</strong> Insert a screenshot of the relevant script logic, the execution result, and the <code>_users</code> OU in ADUC. Captions should describe what each image verifies rather than simply stating that a screenshot was taken. </p>
 
 <h2>3. Client Network Configuration and Service Validation</h2>
 <p>Before joining the workstation to the domain, the client's network configuration was checked to confirm that it received an address from the expected DHCP scope and had the correct gateway. 
@@ -123,8 +123,8 @@ ping mydomain.com
 ping google.com
 ```
 
-<p>The client was expected to receive an address in the 172.16.0.100–172.16.0.200 range and use 172.16.0.1 as its default gateway. 
-If a valid DHCP lease was not present, the lease could be renewed with ipconfig /renew.</p>
+<p>The client was expected to receive an address in the <code>172.16.0.100–172.16.0.200</code> range and use <code>172.16.0.1</code> as its default gateway. 
+If a valid DHCP lease was not present, the lease could be renewed with <code>ipconfig /renew</code>.</p>
 
 Technical significance
 
@@ -137,7 +137,7 @@ not prove that DNS or routing works, and a failed ping does not necessarily mean
 
 
 <h2>4. Domain Join and User Authentication</h2>
-<p>After validating the client's network configuration, client1 was joined to mydomain.com and restarted. The domain join established the workstation's 
+<p>After validating the client's network configuration, <code>client1</code> was joined to <code>mydomain.com</code> and restarted. The domain join established the workstation's 
 membership in the Windows domain and created or updated its computer account in Active Directory.</p>
 
 <p>The computer account was checked in ADUC, and the client's DHCP lease was reviewed in DHCP Manager. A generated domain account was then used to sign in to the workstation.</p>
@@ -156,7 +156,7 @@ mydomain\username
 
 <p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
 
-<p><strong>Evidence:</strong> Insert the domain-join confirmation, the computer account and DHCP lease where applicable, and the whoami output from the signed-in session. 
+<p><strong>Evidence:</strong> Insert the domain-join confirmation, the computer account and DHCP lease where applicable, and the <code>whoami</code> output from the signed-in session. 
 Use captions to identify the specific configuration or result each image supports.</p>
 
 <h1>Key Takeaways</h1>
