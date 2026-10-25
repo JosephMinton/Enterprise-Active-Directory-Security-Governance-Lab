@@ -100,9 +100,30 @@ New-ADOrganizationalUnit -Name "_USERS"
 
 <img src="https://i.imgur.com/YxkweX8.png"/>
 
+<p><h2>2. Automated Active Directory User Provisioning</h2>
+
+<p>PowerShell was used to provision multiple test accounts from a text based list rather than creating each account individually through ADUC. The script created a 
+  dedicated <code>_USERS</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
+
+<p>This exercise demonstrated how structured input and repeatable scripting can reduce repetitive administrative work and help standardize account creation.</p>
+Commands and implementation
+<p>The script was executed from its working directory on the domain controller. Its key operations included creating the OU and calling the Active Directory user management cmdlets.</p>
+
+```powershell
+New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
+```
+
+<img src="https://i.imgur.com/YxkweX8.png"/>
+
 The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the <code>_USERS</code> OU and its accounts were present.
 
-For command line verification, the following query can be used when the domain and OU distinguished name match the lab:
+After navigate to the script folder: 
+
+```powershell
+cd C:\users\a-jminton\desktop\AD_PS-master
+```
+
+For command line verification, the following query can be used to to execute the loop, creating the _USERS OU and populating user accounts:
 
 ```powershell
 Get-ADUser -Filter * `
@@ -110,15 +131,13 @@ Get-ADUser -Filter * `
   Select-Object Name, SamAccountName, Enabled"
 ```
 
-Administrative considerations
-
-<p>The lab used a simplified account creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
-  logging, credential handling, and least privilege permissions. Broad execution policy changes and shared default passwords should not be treated as production defaults.</p>
-
 <img src="https://i.imgur.com/le2zVm1.png"/>
 <img src="https://i.imgur.com/E0ZLUOd.png"/>
 
-
+> *__Administrative considerations__*
+>
+> *The lab used a simplified account creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
+  logging, credential handling, and least privilege permissions. Broad execution policy changes and shared default passwords should not be treated as production defaults.*
 
 
 
