@@ -38,6 +38,10 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 
 [Environment Setup Details](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Network%20Setup.md)
 
+
+
+
+
 <h2>1. Lab Environment and Network Architecture</h2>
 <p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named <code>client1</code>. The client was connected to a 
 VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was <code>mydomain.com</code></p>
@@ -79,6 +83,9 @@ These values describe the training environment and are not intended as productio
 <p>Installation was verified using 'Get-InstalledModule', which confirmed Microsoft Graph SDK version 2.37.0 was successfully installed from PSGallery.</p>
 
 
+
+
+
 <h2>2. Automated Active Directory User Provisioning</h2>
 
 <p>PowerShell was used to provision multiple test accounts from a text-based list rather than creating each account individually through ADUC. The script created a 
@@ -112,38 +119,48 @@ Administrative considerations
 <img src="https://i.imgur.com/le2zVm1.png"/>
 <img src="https://i.imgur.com/E0ZLUOd.png"/>
 
+
+
+
+
 <h2>3. Client Network Configuration and Service Validation</h2>
-No gateway ip address was available
-<img src="https://i.imgur.com/JGcaDVE.png"/>
-fix
-<img src="https://i.imgur.com/LSD3YR1.png"/>
-<p>Before joining the workstation to the domain, the client's network configuration was checked to confirm that it received an address from the expected DHCP scope and had the correct gateway. 
-Connectivity and name-resolution tests were then used to assess whether the client could reach domain and external resources.</p>
-The primary validation command was:
 
-```powershell
-ipconfig /all
-```
-<img src="https://i.imgur.com/7ORONIt.png"/>
+<p>During client network validation, the Windows workstation received a valid DHCP lease but could not access external networks. Investigation revealed that the client had no default gateway configured.</p>
 
-Connectivity and name-resolution checks included:
+<h3>DHCP Default Gateway Troubleshooting</h3>
 
-```powershell
-ping mydomain.com
-ping google.com
-```
+<p><strong>Problem Identification:</strong> The initial <code>ipconfig</code> output showed an IPv4 address of <code>172.16.0.100</code> and subnet mask of <code>255.255.255.0</code>, but the Default Gateway field was blank. Without a default gateway, the client could not route traffic to destinations outside its local subnet.</p>
 
-<p>The client was expected to receive an address in the <code>172.16.0.100–172.16.0.200</code> range and use <code>172.16.0.1</code> as its default gateway. 
-If a valid DHCP lease was not present, the lease could be renewed with <code>ipconfig /renew</code>.</p>
+<p><strong>Initial Configuration</strong></p>
 
-Technical significance
+<img src="https://i.imgur.com/JGcaDVE.png" alt="Client ipconfig output showing a valid IPv4 address but no default gateway" width="700">
 
-<p>DHCP, DNS, and routing serve different purposes. DHCP supplies client network settings; DNS resolves names to records; routing determines how traffic reaches other networks. A valid IP address alone does 
-not prove that DNS or routing works, and a failed ping does not necessarily mean a service is unavailable because ICMP may be blocked.</p>
+<p><strong>Root Cause:</strong> DHCP Scope Option 003 (Router) had not been configured, so the DHCP server was not supplying the client with a default gateway.</p>
 
-<p>For Active Directory domain discovery, the client must be able to query the appropriate domain DNS service and resolve the records required to locate a domain controller.</p>
+<p><strong>Remediation:</strong> On the DHCP server, I configured Option 003 (Router) with the internal gateway address <code>172.16.0.1</code>.</p>
 
-<p><strong>Evidence:</strong> Insert the VirtualBox adapter configuration and client network-test output. Record the actual IP address, gateway, DNS server, and test outcomes visible in the lab rather than assuming every check succeeded.</p>
+<p><strong>DHCP Scope Configuration</strong></p>
+
+<img src="https://i.imgur.com/LSD3YR1.png" alt="Client showing the corrected default gateway and connectivity test results" width="700">
+
+<p>The client then renewed its DHCP lease to obtain the updated network configuration:</p>
+
+<pre><code>ipconfig /release
+ipconfig /renew
+ipconfig /all</code></pre>
+
+<p><strong>Verification:</strong> A subsequent <code>ipconfig</code> check confirmed that the client now had <code>172.16.0.1</code> configured as its default gateway.</p>
+
+<p><strong>Corrected Client Configuration</strong></p>
+
+<img src="https://i.imgur.com/7ORONIt.png" alt="Client ipconfig output confirming the default gateway is now 172.16.0.1" width="700">
+
+> *__Technical Significance__*
+>
+> *DHCP provides clients with network configuration, DNS resolves hostnames, and routing forwards traffic between networks. A valid IP address alone does not guarantee connectivity. This troubleshooting exercise demonstrated how to identify a missing DHCP scope option, apply the correction, and verify the resulting client configuration.*
+
+
+
 
 
 <h2>4. Domain Join and User Authentication</h2>
@@ -172,6 +189,10 @@ mydomain\username
 <p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
 
 <img src="https://i.imgur.com/4y01I53.png"/>
+
+
+
+
 
 <h1>Key Takeaways</h1>
 <ul>
