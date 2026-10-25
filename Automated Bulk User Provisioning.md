@@ -2,10 +2,12 @@
 <h1>Active Directory Administration Lab 🏢</h1>
 
 PowerShell Automation, Domain Services, and Workstation Authentication
+
 <h2>Description</h2>
 <p>Active Directory provides centralized identity and access management for Windows environments. This lab explored how account provisioning, network configuration, and domain authentication work together in a small 
-virtualized Windows domain. PowerShell was used to automate bulk user creation, while Windows Server and client-side tools were used to validate directory objects, DHCP addressing, name resolution, and domain sign-in.</p>
+virtualized Windows domain. PowerShell was used to automate bulk user creation, while Windows Server and client side tools were used to validate directory objects, DHCP addressing, name resolution, and domain sign-in.</p>
 <br />
+<img src="https://i.imgur.com/4y01I53.png"/>
 <p>The focus was not only on configuring the environment, but also on verifying that each component behaved as expected before relying on it in the next stage.</p>
 
 <h2>Objective</h2>
@@ -15,7 +17,7 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 <li><strong>Organize test accounts in a dedicated Organizational Unit (OU)</li>
 <li><strong>Validate client IP addressing, gateway configuration, and DNS resolution</li>
 <li><strong>Connect a Windows workstation to an Active Directory domain</li>
-<li><strong>Verify domain-user authentication from the client workstation</li>
+<li><strong>Verify domain user authentication from the client workstation</li>
 <li><strong>Identify security and reliability considerations for administrative automation</li>
 </ul>
 
@@ -43,8 +45,8 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
 
 
 <h2>1. Lab Environment and Network Architecture</h2>
-<p>The environment consisted of a Windows Server domain controller and a Windows 10 Pro workstation named <code>client1</code>. The client was connected to a 
-VirtualBox Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was <code>mydomain.com</code></p>
+<p>The environment consisted of a Windows Server domain controller 2022 and a Windows 11 workstation named <code>client1</code>. The client was connected to a 
+VMware Internal Network, creating a private virtual network for testing domain services. The domain used in the lab was <code>mydomain.com</code></p>
 </br>
 <p>The internal DHCP scope was configured for <code>172.16.0.100–172.16.0.200</code>, with <code>172.16.0.1</code> as the expected default gateway. The server also 
 provided routing through the lab's NAT/RRAS configuration, allowing the isolated client network to reach external resources.</p>
@@ -66,7 +68,7 @@ Key configuration values
   </tr>
     <tr>
     <td><b>Client network</b></td>
-    <td><b>VirtualBox Internal Network</b></td>
+    <td><b>VMware Workstation Internal Network</b></td>
   </tr>
     <tr>
     <td><b>DHCP scope</b></td>
@@ -80,41 +82,38 @@ Key configuration values
 
 These values describe the training environment and are not intended as production network recommendations.
 
-<p>Installation was verified using 'Get-InstalledModule', which confirmed Microsoft Graph SDK version 2.37.0 was successfully installed from PSGallery.</p>
-
-
 
 
 
 <h2>2. Automated Active Directory User Provisioning</h2>
 
-<p>PowerShell was used to provision multiple test accounts from a text-based list rather than creating each account individually through ADUC. The script created a 
-  dedicated <code>_users</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
+<p>PowerShell was used to provision multiple test accounts from a text based list rather than creating each account individually through ADUC. The script created a 
+  dedicated <code>_USERS</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
 
 <p>This exercise demonstrated how structured input and repeatable scripting can reduce repetitive administrative work and help standardize account creation.</p>
 Commands and implementation
-<p>The script was executed from its working directory on the domain controller. Its key operations included creating the OU and calling the Active Directory user-management cmdlets.</p>
+<p>The script was executed from its working directory on the domain controller. Its key operations included creating the OU and calling the Active Directory user management cmdlets.</p>
 
 ```powershell
-New-ADOrganizationalUnit -Name "_users"
+New-ADOrganizationalUnit -Name "_USERS"
 ```
 
 <img src="https://i.imgur.com/YxkweX8.png"/>
 
-The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the <code>_users</code> OU and its accounts were present.
+The full script handled reading the source file, deriving usernames, preparing account attributes, and creating users. The directory was then inspected in Active Directory Users and Computers to verify that the <code>_USERS</code> OU and its accounts were present.
 
-For command-line verification, the following query can be used when the domain and OU distinguished name match the lab:
+For command line verification, the following query can be used when the domain and OU distinguished name match the lab:
 
 ```powershell
 Get-ADUser -Filter * `
-  -SearchBase "OU=_users,DC=mydomain,DC=com" |
+  -SearchBase "OU=_USERS,DC=mydomain,DC=com" |
   Select-Object Name, SamAccountName, Enabled"
 ```
 
 Administrative considerations
 
-<p>The lab used a simplified account-creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
-  logging, credential handling, and least-privilege permissions. Broad execution-policy changes and shared default passwords should not be treated as production defaults.</p>
+<p>The lab used a simplified account creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
+  logging, credential handling, and least privilege permissions. Broad execution policy changes and shared default passwords should not be treated as production defaults.</p>
 
 <img src="https://i.imgur.com/le2zVm1.png"/>
 <img src="https://i.imgur.com/E0ZLUOd.png"/>
@@ -188,19 +187,16 @@ mydomain\username
 
 <p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
 
-<img src="https://i.imgur.com/4y01I53.png"/>
-
 
 
 
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>PowerShell automation:</strong> Scripted provisioning can make repetitive account creation more consistent than individual manual operations. The scale and time savings should be reported only when measured or verified.</li>
-<li><strong>Directory organization:</strong> Organizational Units provide a way to group and manage directory objects and can be used as targets for delegated administration and Group Policy.</li>
-<li><strong>Service dependencies:</strong> Successful domain joining depends on more than an IP address. Correct DNS configuration, network connectivity, and domain-controller discovery are also essential.</li>
-<li><strong>Layered troubleshooting:</strong> Checking IP configuration, DNS resolution, connectivity, and domain authentication as separate layers helps narrow down where a failure occurs.</li>
-<li><strong>Centralized identity:</strong> Domain users can authenticate to appropriately configured domain-joined workstations, subject to account status, policy, permissions, and service availability.</li>
-<li><strong>Executed a complete offboarding workflow: License removal, account deletion, and recycle bin verification entirely from the command line interface</li>
-<li><strong>Security-conscious administration:</strong> Reliable automation should validate input, handle errors, avoid reusable shared passwords, and use only the permissions required for the task.</li>
+<li><strong>PowerShell automation:</strong> Used PowerShell to automate bulk Active Directory user provisioning from a structured input file, reducing reliance on repetitive manual account creation</li>
+<li><strong>Directory organization:</strong> Created a dedicated _USERS Organizational Unit (OU) to organize test accounts and provide a foundation for delegated administration and Group Policy management</li>
+<li><strong>Network Troubleshooting:</strong> Identified a missing DHCP default gateway, configured DHCP Scope Option 003 (Router), and verified that the client received the expected gateway address</li>
+<li><strong>Domain Services and Authentication:</strong> Joined a Windows workstation to mydomain.com and used the domain account context to verify authentication from the client</li>
+<li><strong>Layered Validation:</strong> Used PowerShell, Active Directory Users and Computers, DHCP Manager, and Windows command line tools to inspect configuration and validate lab components at different stages</li>
+<li><strong>Security Administration:</strong> Identified production considerations for account provisioning automation, including input validation, duplicate account handling, error logging, credential security, and least privilege permissions</li>
 </ul>
