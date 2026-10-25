@@ -1,7 +1,7 @@
 # [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
 <h1>Active Directory Administration Lab 🏢</h1>
 
-PowerShell Automation, Domain Services, and Workstation Authentication
+<h2>PowerShell Automation, Domain Services, and Workstation Authentication</h2>
 
 <h2>Description</h2>
 <p>Active Directory provides centralized identity and access management for Windows environments. This lab explored how account provisioning, network configuration, and domain authentication work together in a small 
@@ -80,25 +80,9 @@ Key configuration values
   </tr>
 </table>
 
-These values describe the training environment and are not intended as production network recommendations.
+> *These values described are only meant to be used only for my home lab enivornment.*
 
 
-
-
-<h2>2. Automated Active Directory User Provisioning</h2>
-
-<p>PowerShell was used to provision multiple test accounts from a text based list rather than creating each account individually through ADUC. The script created a 
-  dedicated <code>_USERS</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
-
-<p>This exercise demonstrated how structured input and repeatable scripting can reduce repetitive administrative work and help standardize account creation.</p>
-Commands and implementation
-<p>The script was executed from its working directory on the domain controller. Its key operations included creating the OU and calling the Active Directory user management cmdlets.</p>
-
-```powershell
-New-ADOrganizationalUnit -Name "_USERS"
-```
-
-<img src="https://i.imgur.com/YxkweX8.png"/>
 
 <p><h2>2. Automated Active Directory User Provisioning</h2>
 
@@ -123,12 +107,10 @@ After navigate to the script folder:
 cd C:\users\a-jminton\desktop\AD_PS-master
 ```
 
-For command line verification, the following query can be used to to execute the loop, creating the _USERS OU and populating user accounts:
+For command line verification, the following query was used to to execute the loop, creating the _USERS OU and populating user accounts:
 
 ```powershell
-Get-ADUser -Filter * `
-  -SearchBase "OU=_USERS,DC=mydomain,DC=com" |
-  Select-Object Name, SamAccountName, Enabled"
+C:\Users\a-jminton\Desktop\AD_PS-master\1_CREATE_USERS.ps1
 ```
 
 <img src="https://i.imgur.com/le2zVm1.png"/>
@@ -136,8 +118,8 @@ Get-ADUser -Filter * `
 
 > *__Administrative considerations__*
 >
-> *The lab used a simplified account creation workflow for learning purposes. In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
-  logging, credential handling, and least privilege permissions. Broad execution policy changes and shared default passwords should not be treated as production defaults.*
+> *In a production environment, bulk provisioning should also account for duplicate usernames, invalid input, failures partway through a batch, 
+  logging, credential handling, and least privilege permissions. Broad execution policy changes and shared default passwords is only done to simplify my home lab enviornment*
 
 
 
@@ -161,12 +143,6 @@ Get-ADUser -Filter * `
 
 <img src="https://i.imgur.com/LSD3YR1.png" alt="Client showing the corrected default gateway and connectivity test results" width="700">
 
-<p>The client then renewed its DHCP lease to obtain the updated network configuration:</p>
-
-<pre><code>ipconfig /release
-ipconfig /renew
-ipconfig /all</code></pre>
-
 <p><strong>Verification:</strong> A subsequent <code>ipconfig</code> check confirmed that the client now had <code>172.16.0.1</code> configured as its default gateway.</p>
 
 <p><strong>Corrected Client Configuration</strong></p>
@@ -183,15 +159,13 @@ ipconfig /all</code></pre>
 
 <h2>4. Domain Join and User Authentication</h2>
 <p>After validating the client's network configuration, <code>client1</code> was joined to <code>mydomain.com</code> and restarted. The domain join established the workstation's 
-membership in the Windows domain and created or updated its computer account in Active Directory.</p>
-
-<p>The computer account was checked in ADUC, and the client's DHCP lease was reviewed in DHCP Manager. A generated domain account was then used to sign in to the workstation.</p>
+membership in the Windows domain and created or updated its computer account in Active Directory. The computer account was checked in ADUC, and the client's DHCP lease was reviewed in DHCP Manager. A generated domain account was then used to sign in to the workstation.</p>
 
 <img src="https://i.imgur.com/6d46IWC.png"/>
 <img src="https://i.imgur.com/qDdILig.png"/>
-
-Authentication verification
- <p>The following command was run in the client's Command Prompt:</p>
+</br>
+<h3>Authentication verification</h3>
+<p>The following command was run in the client's Command Prompt:</p>
 
 ```powershell
 whoami
@@ -199,14 +173,12 @@ whoami
 <p>The expected format was:</p>
 
 ```powershell
-mydomain\username
+mydomain\jminton
 ```
 
 <img src="https://i.imgur.com/QxfVAkG.png"/>
 
-<p>This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.</p>
-
-
+> *This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.*
 
 
 
