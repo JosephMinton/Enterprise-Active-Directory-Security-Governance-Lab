@@ -1,4 +1,4 @@
-# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
+# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
 <h1>Active Directory Domain Services (AD DS) Foundation & Initial Setup</h1>
 
 
