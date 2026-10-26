@@ -1,7 +1,5 @@
-# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
-<h1>Active Directory Administration Lab 🏢</h1>
-
-<h2>PowerShell Automation, Domain Services, and Workstation Authentication</h2>
+# [Enterprise Windows Server & Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main) 🖥
+<h1>Automated Active Directory User Provisioning with PowerShell 🏢</h1>
 
 <h2>Description</h2>
 <p>Active Directory provides centralized identity and access management for Windows environments. This lab explored how account provisioning, network configuration, and domain authentication work together in a small 
