@@ -1,5 +1,5 @@
-# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
-<h1>Security Governance via Group Policy Management</h1>
+# [Enterprise Windows Server & Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab) 🖥
+<h1>Security Governance with Group Policy 🔒</h1>
 
 <h2>Description</h2>
 This lab is Part II of a multi part Active Directory home lab series. In this phase, I focused on creating, configuring, and enforcing Group Policy Objects (GPOs) to centrally manage user and computer behavior within a domain environment.
