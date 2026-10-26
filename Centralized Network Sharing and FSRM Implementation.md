@@ -1,5 +1,5 @@
-# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
-<h1>Centralized Network Sharing and FSRM Implementation</h1>
+# [Enterprise Windows Server & Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab) 🖥
+<h1>Centralized Network Sharing and FSRM Implementation 📁</h1>
 
 <h2>Description</h2>
 This lab is Part IV of a multipart Active Directory home lab series. This phase focuses on the implementation of centralized file services, the critical distinction between Share and NTFS permissions, and the automation of network resource access via Group Policy Preferences. Additionally, the lab introduces storage governance through File Server Resource Manager (FSRM) to enforce storage limits and restrict unauthorized file types
