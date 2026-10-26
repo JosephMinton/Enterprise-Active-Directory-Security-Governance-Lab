@@ -34,4 +34,4 @@ This project demonstrates Windows Server administration and Active Directory man
 [Centralized Network Sharing and FSRM Implementation](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Centralized%20Network%20Sharing%20and%20FSRM%20Implementation.md) 📁 File permissions, automated network drive mapping, storage quotas, and file screening.
 
 [Automated Active Directory User Provisioning with PowerShell](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Automated%20Bulk%20User%20Provisioning.md)
-⚙️ PowerShell-based bulk user provisioning, Active Directory account management, DHCP troubleshooting, and domain authentication verification.
+🏢 PowerShell-based bulk user provisioning, Active Directory account management, DHCP troubleshooting, and domain authentication verification.
