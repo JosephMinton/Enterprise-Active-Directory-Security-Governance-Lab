@@ -1,4 +1,4 @@
-# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
+# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
 # [Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/blob/main/Automated%20Bulk%20User%20Provisioning.md) 🏢 Prerequisites & Environment Setup
 
 <h2>Description</h2>
