@@ -1,5 +1,5 @@
-# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab)
-<h1>Domain Integration & Security Policy Verification</h1>
+# [Enterprise Windows Server & Active Directory Administration Lab](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab) 🖥
+<h1>Domain Integration & Security Policy Verification 🌐</h1>
 
 <h2>Description</h2>
 This lab is Part III of a multipart Active Directory home lab series. This phase focuses on the integration of a Windows 11 client machine into the domain environment, ensuring proper DNS resolution, and verifying that the security policies (GPOs) configured in Part II are successfully enforced on end user workstations.
