@@ -1,4 +1,4 @@
-# [Enterprise Active Directory Security Governance Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
+# [Enterprise Windows Server & Active Directory Administration Lab 🖥](https://github.com/JosephMinton/Enterprise-Active-Directory-Security-Governance-Lab/tree/main)
 <h1>Active Directory Administration Lab 🏢</h1>
 
 <h2>PowerShell Automation, Domain Services, and Workstation Authentication</h2>
