@@ -8,7 +8,7 @@
       </p>
     </td>
     <td valign="middle" align="center" width="150">
-      <img src="https://i.imgur.com/XDyzZ8v.jpeg" alt="Microsoft 365 logo" width="150">
+      <img src="https://i.imgur.com/XDyzZ8v.jpeg" alt="Windows Server Logo" width="150">
     </td>
   </tr>
 </table>
