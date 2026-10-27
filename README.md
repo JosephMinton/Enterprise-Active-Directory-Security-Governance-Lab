@@ -1,8 +1,19 @@
 <h1><a href="https://www.linkedin.com/in/josephkdminton/">Joseph Minton</a>'s Enterprise Windows Server & Active Directory Administration Lab 🖥</h1>
 
-This project demonstrates Windows Server administration and Active Directory management in a virtualized enterprise environment, covering domain deployment, Group Policy security, PowerShell automation, domain authentication, and centralized file services.
+<table>
+  <tr>
+    <td valign="middle">
+      <p>
+        This project demonstrates Windows Server administration and Active Directory management in a virtualized enterprise environment, covering domain deployment, Group Policy security, PowerShell automation, domain authentication, and centralized file services.
+      </p>
+    </td>
+    <td valign="middle" align="center" width="150">
+      <img src="https://i.imgur.com/XDyzZ8v.jpeg" alt="Microsoft 365 logo" width="150">
+    </td>
+  </tr>
+</table>
 
-<h2>Tools and Technologies Used</h2>
+<h2>Technologies Used 🧪</h2>
 
 <table>
   <tr>
