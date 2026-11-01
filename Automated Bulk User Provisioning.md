@@ -6,7 +6,6 @@
 virtualized Windows domain. PowerShell was used to automate bulk user creation, while Windows Server and client side tools were used to validate directory objects, DHCP addressing, name resolution, and domain sign-in.</p>
 <br />
 <img src="https://i.imgur.com/4y01I53.png"/>
-<p>The focus was not only on configuring the environment, but also on verifying that each component behaved as expected before relying on it in the next stage.</p>
 
 <h2>Objective</h2>
 
@@ -27,7 +26,7 @@ virtualized Windows domain. PowerShell was used to automate bulk user creation, 
     <td><b>Windows Server 2022</b></td>
   </tr>
   <tr>
-    <td><b>Windows 11 VM</b></td>
+    <td><b>Windows 11</b></td>
     <td><b>Active Directory Domain Services</b></td>
   </tr>
   <tr>
@@ -49,7 +48,7 @@ VMware Internal Network, creating a private virtual network for testing domain s
 <p>The internal DHCP scope was configured for <code>172.16.0.100–172.16.0.200</code>, with <code>172.16.0.1</code> as the expected default gateway. The server also 
 provided routing through the lab's NAT/RRAS configuration, allowing the isolated client network to reach external resources.</p>
 
-Key configuration values
+<h3>Key Configuration Values</h3>
 
 <table>
   <tr>
@@ -88,7 +87,7 @@ Key configuration values
   dedicated <code>_USERS</code> Organizational Unit, read names from <code>names.txt</code>, generated usernames using the first initial and surname, and created accounts with <code>New-ADUser</code>.</p>
 
 <p>This exercise demonstrated how structured input and repeatable scripting can reduce repetitive administrative work and help standardize account creation.</p>
-Commands and implementation
+<h3>Commands and Implementation</h3>
 <p>The script was executed from its working directory on the domain controller. Its key operations included creating the OU and calling the Active Directory user management cmdlets.</p>
 
 ```powershell
@@ -182,10 +181,10 @@ mydomain\jminton
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>PowerShell automation:</strong> Used PowerShell to automate bulk Active Directory user provisioning from a structured input file, reducing reliance on repetitive manual account creation</li>
-<li><strong>Directory organization:</strong> Created a dedicated _USERS Organizational Unit (OU) to organize test accounts and provide a foundation for delegated administration and Group Policy management</li>
+<li><strong>PowerShell automation:</strong> Used PowerShell to automate bulk Active Directory user provisioning from a structured input file</li>
+<li><strong>Directory organization:</strong> Created a dedicated <code>_USERS</code> Organizational Unit (OU) to organize test accounts and provide a foundation for delegated administration and Group Policy management</li>
 <li><strong>Network Troubleshooting:</strong> Identified a missing DHCP default gateway, configured DHCP Scope Option 003 (Router), and verified that the client received the expected gateway address</li>
 <li><strong>Domain Services and Authentication:</strong> Joined a Windows workstation to mydomain.com and used the domain account context to verify authentication from the client</li>
-<li><strong>Layered Validation:</strong> Used PowerShell, Active Directory Users and Computers, DHCP Manager, and Windows command line tools to inspect configuration and validate lab components at different stages</li>
+<li><strong>Layered Validation:</strong> Used PowerShell, Active Directory Users and Computers, DHCP Manager, and Windows command line tools to inspect configuration and validate lab components</li>
 <li><strong>Security Administration:</strong> Identified production considerations for account provisioning automation, including input validation, duplicate account handling, error logging, credential security, and least privilege permissions</li>
 </ul>
