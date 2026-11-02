@@ -5,7 +5,7 @@
 <p>Active Directory provides centralized identity and access management for Windows environments. This lab explored how account provisioning, network configuration, and domain authentication work together in a small 
 virtualized Windows domain. PowerShell was used to automate bulk user creation, while Windows Server and client side tools were used to validate directory objects, DHCP addressing, name resolution, and domain sign-in.</p>
 <br />
-<img src="https://i.imgur.com/4y01I53.png"/>
+<img src="https://i.imgur.com/LolKNFg.png"/>
 
 <h2>Objective</h2>
 
@@ -177,7 +177,7 @@ mydomain\jminton
 
 > *This check confirms the identity context of the current Windows session. It is a useful final verification that the session is using the domain account rather than a local workstation account.*
 
-
+<img src="https://i.imgur.com/4y01I53.png"/>
 
 <h1>Key Takeaways</h1>
 <ul>
